@@ -12,6 +12,7 @@ import sys
 from armor_api.armor_client import ArmorClient
 urgency = False
 
+
 def user_action():
     return random.choice(['discharged','timeup','charged','loaded','relaxed'])
 
