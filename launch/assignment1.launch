@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<launch>
+	<node pkg="armor" 
+	      type="execute" 
+	      name="armor_service" 
+	      args="it.emarolab.armor.ARMORMainService"
+	></node>
+	
+	<node pkg="survailence_robot" 
+	      type="state_machine.py" 
+	      name="smach_example_state_machine"
+	      output="screen"
+	></node>
+	      
+	<node pkg = "smach_viewer"
+	      type = "smach_viewer.py"
+	      name= "smach_viewer"
+	></node>
+	
+
+</launch>
