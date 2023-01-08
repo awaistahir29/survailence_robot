@@ -3,13 +3,13 @@
 import random
 import rospy
 # Import constant name defined to structure the architecture.
-from arch_skeleton import architecture_name_mapper as anm
+from survailence_robot import architecture_name_mapper as anm
 # Import the ActionServer implementation used.
 from actionlib import SimpleActionServer
 # Import custom message, actions and services.
-from arch_skeleton.msg import Point, PlanFeedback, PlanResult
-from arch_skeleton.srv import GetPose
-import arch_skeleton  # This is required to pass the `PlanAction` type for instantiating the `SimpleActionServer`.
+from survailence_robot.msg import Point, PlanFeedback, PlanResult
+from survailence_robot.srv import GetPose
+import survailence_robot  # This is required to pass the `PlanAction` type for instantiating the `SimpleActionServer`.
 
 
 # A tag for identifying logs producer.
@@ -28,7 +28,7 @@ class PlaningAction(object):
         self._environment_size = rospy.get_param(anm.PARAM_ENVIRONMENT_SIZE)
         # Instantiate and start the action server based on the `SimpleActionServer` class.
         self._as = SimpleActionServer(anm.ACTION_PLANNER, 
-                                      arch_skeleton.msg.PlanAction, 
+                                      survailence_robot.msg.PlanAction, 
                                       execute_cb=self.execute_callback, 
                                       auto_start=False)
         self._as.start()

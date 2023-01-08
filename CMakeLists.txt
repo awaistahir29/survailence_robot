@@ -25,6 +25,8 @@ add_service_files(
   FILES
   GetPose.srv
   SetPose.srv
+  GetBattery.srv
+  SetBattery.srv
 )
 
 ## Generate actions in the 'action' folder.

@@ -8,7 +8,7 @@ import random
 import time
 import re
 from ASSIGMENT_01 import name_mapper as nm
-from EXPROBLAB_Assignment1.msg import Point, PlanAction, PlanGoal, ControlAction
+from survailence_robot.msg import Point, PlanAction, PlanGoal, ControlAction
 from armor_api.armor_client import ArmorClient
 
 from threading import Thread

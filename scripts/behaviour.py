@@ -9,15 +9,15 @@ import smach_ros
 from smach import StateMachine, State
 
 # Import constant names that define the architecture's structure.
-from arch_skeleton import architecture_name_mapper as anm
+from survailence_robot import architecture_name_mapper as anm
 
 # Import a class that decouples the interface of the Finite State Machine with
 # the other  nodes of the architecture from the actual implementation of the
 # Finite State Machine, which is available in this file.
-from arch_skeleton.fsm_helper import InterfaceHelper
+from survailence_robot.fsm_helper import InterfaceHelper
 
 # Import used messages defined within the ROS architecture.
-from arch_skeleton.msg import Gesture, Point, Speech, PlanAction, PlanGoal, ControlAction, ControlGoal
+from survailence_robot.msg import Gesture, Point, Speech, PlanAction, PlanGoal, ControlAction, ControlGoal
 
 
 # The list of names that identify the states of the Finite State Machine.
