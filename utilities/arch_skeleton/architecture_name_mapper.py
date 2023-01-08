@@ -59,8 +59,14 @@ SERVER_GET_POSE = 'state/get_pose'
 # The name of the server to set the current robot pose. 
 SERVER_SET_POSE = 'state/set_pose'
 
+# The name of the server to get the current robot battery.
+SERVER_GET_BATTERY = 'state/get_battery'
+
+# The name of the server to set the current robot battery. 
+SERVER_SET_BATTERY = 'state/set_battery'
+
 # The name of the topic where the battery state is published.
-TOPIC_BATTERY_LOW = 'state/battery_low'
+#TOPIC_BATTERY_LOW = 'state/battery_low'
 
 # The delay between changes of battery levels, i.e., high/low.
 # It should be a list `[min_time, max_time]`, and the battery level change
@@ -85,6 +91,8 @@ PARAM_PLANNER_POINTS = 'test/random_plan_points'
 PARAM_PLANNER_TIME = 'test/random_plan_time'
 # -------------------------------------------------
 
+# The name of the finite state machine node.
+NODE_FINITE_STATE_MACHINE = 'finite_state_machine'
 
 # The name of the controller node.
 NODE_CONTROLLER = 'controller'
