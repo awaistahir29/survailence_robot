@@ -4,7 +4,7 @@ import threading
 import random
 import rospy
 # Import constant name defined to structure the architecture.
-from arch_skeleton import architecture_name_mapper as anm
+from survailence_robot import architecture_name_mapper as anm
 # Import the messages used by services and publishers.
 from std_msgs.msg import Bool
 from survailence_robot.srv import GetPose, GetPoseResponse, SetPose, SetPoseResponse, GetBattery, SetBattery, GetBatteryResponse, SetBatteryResponse

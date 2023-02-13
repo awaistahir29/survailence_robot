@@ -684,3 +684,54 @@ def main():
 if __name__ == '__main__':
     main()
 
+
+
+
+
+
+
+
+
+
+
+
+
+def urgency():
+    client = ArmorClient('example', 'ontoRef')
+    client.utils.sync_buffered_reasoner()
+
+    list5 =client.query.objectprop_b2_ind('canReach', 'Robot1')
+    new_list1 = []
+    for string in list5:
+        new_list1.append(re.search('#' + '(.+?)'+'>', string).group(1))
+    print('I can reach: ', new_list1)
+
+    urgent = client.query.ind_b2_class('URGENT')
+    urgentList = []
+    i = 0
+    for string in urgent:
+        urgentList.append(re.search('#' + '(.+?)'+'>', string).group(1))
+        print('The urgent list is: ', urgentList)
+        for string in urgentList:
+            if urgentList[i] == 'R1' or 'R2' or 'R3' or 'R4':
+                if new_list1[i] == 'R1' or 'R2' or 'R3' or 'R4':
+                    print("Urgency Occured")
+                    return new_list1[i]
+                else:
+                    i += 1
+
+def urgencycheck():
+    client = ArmorClient('example', 'ontoRef')
+    client.utils.sync_buffered_reasoner()
+    urgent = client.query.ind_b2_class('URGENT')
+    urgentList = []
+    i = 0
+    for string in urgent:
+        urgentList.append(re.search('#' + '(.+?)'+'>', string).group(1))
+        print('The urgent list is: ', urgentList)
+        for string in urgentList:
+            if urgentList[i] == 'R1' or 'R2' or 'R3' or 'R4':
+                print("Urgency Occured")
+                return True
+            else:
+                i += 1

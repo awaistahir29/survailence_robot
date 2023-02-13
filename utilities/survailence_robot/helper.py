@@ -8,7 +8,7 @@ from actionlib import SimpleActionClient
 from threading import Lock
 
 # Import constant names that define the architecture's structure.
-from arch_skeleton import architecture_name_mapper as anm
+from survailence_robot import architecture_name_mapper as anm
 from survailence_robot.srv import GetPose, GetPoseResponse, SetPose, SetPoseResponse, GetBattery, SetBattery, GetBatteryResponse, SetBatteryResponse
 from survailence_robot.msg import Point
 

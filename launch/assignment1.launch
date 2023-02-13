@@ -2,13 +2,13 @@
 <launch>
 
 	<rosparam param = "state/initial_pose"> [3.5, 1.0] </rosparam>
-	
-    <node pkg = "arch_skeleton"  
+<!--	
+    <node pkg = "survailence_robot"  
           type = "robot_states.py" 
           name = "robot_states"
           output = "screen"
     > </node>
-<!--
+
 	<node pkg="armor" 
 	      type="execute" 
 	      name="armor_service" 
@@ -17,7 +17,7 @@
 	
 	<node pkg="survailence_robot" 
 	      type="state_machine.py" 
-	      name="smach_example_state_machine"
+	      name="finite_state_machine"
 	      output="screen"
 	></node>
 	      

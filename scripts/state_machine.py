@@ -10,17 +10,17 @@ import re
 import sys
 import random
 
-from arch_skeleton.helper import TopologicalMap
+from survailence_robot.helper import TopologicalMap
 from armor_api.armor_client import ArmorClient
 
-from survailence_robot.srv import GetPose, GetPoseResponse, SetPose, SetPoseResponse, GetBattery, SetBattery, GetBatteryResponse, SetBatteryResponse
-from arch_skeleton import architecture_name_mapper as anm
+from survailence_robot.srv import GetBattery, SetBattery
+from survailence_robot import architecture_name_mapper as anm
 
 # A tag for identifying logs producer.
 LOG_TAG = anm.NODE_FINITE_STATE_MACHINE
 LOOP_TIME = 2
 
-urgency = False
+#urgency = False
 tm = None
 stayinroomtime = 0.5
 urgentflag = 1
@@ -73,20 +73,6 @@ def cutBattery():
     print(resp)
     newLevel = resp.level - 1 
     _set_battery_level_client(newLevel)
-
-def callbackbattery(data):
-    """
-    Function is the callback for the topic *batterylevel* and sets the global varible *batflag*.  
-    Args:
-        Battery state(class Bool): The data recived from the message.  
-    Returns:
-        void
-    """
-    global batflag
-    if data.data == 1:
-        batflag = 1
-    elif data.data ==0:
-        batflag = 0
 
 def findindividual(list):
     """
@@ -153,37 +139,6 @@ def moveto(location):
             i += 1
     i = 0
     client.utils.sync_buffered_reasoner()
-    
-    
-
-    #and (location == 'R1' or location == 'R2' or location == 'E' or location == 'C2')
-    #and (location == 'R3' or location == 'R4' or location == 'E' or location == 'C1')
-
-    # If unreachable Target appeared
-    
-    
-    #is_In = client.query.objectprop_b2_ind('isIn', 'Robot1')
-    #oldlocation=findindividual(is_In)
-    #can_Reach=client.query.objectprop_b2_ind('canReach', 'Robot1')
-    #reachable_location=findindividual(can_Reach)
-    #if oldlocation == 'C1' and (location== 'R3' or location =='R4') and (reachable_location== 'C2'):
-    #    print("Moving from: " + oldlocation, "to: " + location)
-    #    client.manipulation.replace_objectprop_b2_ind('isIn', 'Robot1', 'C2', 'C1')
-    #elif oldlocation == 'C2' and (location== 'R1' or location =='R2') and (reachable_location== 'C1'):
-    #    print("Moving from: " + oldlocation, "to: " + location)
-    #    client.manipulation.replace_objectprop_b2_ind('isIn', 'Robot1', 'C1', 'C2')
-
-
-    # Change Locations Data Properties
-    #client.call('REASON','','',[''])
-    #is_In = client.query.objectprop_b2_ind('isIn', 'Robot1')
-    #oldlocation=findindividual(is_In)
-    #print("Moving from: " + oldlocation, "to: " + location)
-    #client.manipulation.replace_objectprop_b2_ind('isIn', 'Robot1', location, oldlocation)
-
-    
-        
-    
 
     if location == 'R1' or location == 'R2' or location == 'R3' or location == 'R4':
         old_time = client.query.dataprop_b2_ind('now', 'Robot1')
