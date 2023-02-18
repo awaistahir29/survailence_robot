@@ -19,13 +19,13 @@ Indices and tables
 * :ref:`modindex`
 * :ref:`search`
 
-robot_states Module
+Robot State Module
 =====================
 .. automodule:: scripts.robot_states
    :members:
    
-state_machine Module
-=====================
+Finite State Machine Module
+========================================
 .. automodule:: scripts.state_machine
    :members:
   

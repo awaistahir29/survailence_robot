@@ -7,6 +7,12 @@
 .. moduleauthor:: Awais Tahir <awaistahir29@gmail.com>
 
 This node implements the robot state for controlling the robot in the environment.
+
+Services:
+- GetPose
+- SetPose
+- GetBattery
+- SetBattery
 """
 
 
@@ -27,10 +33,16 @@ LOG_TAG = anm.NODE_ROBOT_STATE
 
 # The node manager class.
 # This class defines two services to get and set the current 
-# robot pose, and a publisher to notify that the battery is low.
+# robot pose, and a publisher to notify that the battery is low. 
 class RobotState:
-
+    """
+The node manager class. This class defines two services to get and set the current robot pose, and a publisher to notify that the battery is low. Also additional services to get and set battery level.
+    """
     def __init__(self):
+    """
+    Initializeing the module getting the parameters from the parameter server, the initial position x and y. Also setting the battery level to 20.
+    """
+    
         # Initialise this node.
         rospy.init_node(anm.NODE_ROBOT_STATE, log_level=rospy.INFO)
         # Initialise robot position.
@@ -57,6 +69,9 @@ class RobotState:
     # The `request` input parameter is the current robot pose to be set,
     # as given by the client. This server returns an empty `response`.
     def set_pose(self, request):
+    """
+    Function to set the position
+    """
         if request.pose is not None:
             # Store the new current robot position.
             self._pose = request.pose
@@ -73,6 +88,9 @@ class RobotState:
     # The `request` input parameter is given by the client as empty. Thus, it is not used.
     # The `response` returned to the client contains the current robot pose.
     def get_pose(self, response):
+    """
+    Function to get the position
+    """
         # Log information.
         if self._pose is None:
             rospy.logerr(anm.tag_log('Cannot get an unspecified robot position', LOG_TAG))
@@ -88,6 +106,9 @@ class RobotState:
     # The `request` input parameter is the current robot pose to be set,
     # as given by the client. This server returns an empty `response`.
     def set_battery(self, request):
+    """
+    Function to set the battery level
+    """
         if request.level is not None:
             # Store the new current robot position.
             self._battery_level = request.level
@@ -104,6 +125,9 @@ class RobotState:
     # The `request` input parameter is given by the client as empty. Thus, it is not used.
     # The `response` returned to the client contains the current robot pose.
     def get_battery(self, response):
+    """
+    Function to get the battery level
+    """
         # Log information.
         if self._battery_level is None:
             rospy.logerr(anm.tag_log('Cannot get an unspecified robot battery level', LOG_TAG))
