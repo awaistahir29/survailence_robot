@@ -1,4 +1,15 @@
 #!/usr/bin/env python3
+"""
+.. module:: state_machine
+	:platform: Unix
+	:synopsis: Python code for interface of the modalities
+	
+.. moduleauthor:: Awais Tahir <awaistahir29@gmail.com>
+
+This node implements the state machine for controlling the robot in the environment.
+"""
+
+
 
 import roslib
 import rospy

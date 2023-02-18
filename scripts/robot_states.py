@@ -1,4 +1,14 @@
 #!/usr/bin/env python
+"""
+.. module:: robot_states
+	:platform: Unix
+	:synopsis: Python code for interface of the modalities
+	
+.. moduleauthor:: Awais Tahir <awaistahir29@gmail.com>
+
+This node implements the robot state for controlling the robot in the environment.
+"""
+
 
 import threading
 import random

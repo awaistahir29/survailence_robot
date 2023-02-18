@@ -2,7 +2,7 @@
 <launch>
 
 	<rosparam param = "state/initial_pose"> [3.5, 1.0] </rosparam>
-<!--	
+	
     <node pkg = "survailence_robot"  
           type = "robot_states.py" 
           name = "robot_states"
@@ -25,6 +25,6 @@
 	      type = "smach_viewer.py"
 	      name= "smach_viewer"
 	></node>
-	-->
+
 
 </launch>
